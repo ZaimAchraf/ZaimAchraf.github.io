@@ -1,0 +1,78 @@
+---
+const formEndpoint = import.meta.env.PUBLIC_FORMSPREE_ENDPOINT ?? 'https://formspree.io/f/your-form-id';
+const formConfigured = !formEndpoint.endsWith('/your-form-id');
+---
+
+<section id="contact" class="contact">
+  <div class="container" data-aos="fade-up">
+    <div class="section-title">
+      <h2>Contact</h2>
+    </div>
+
+    <div class="row g-4 mt-1 contact-cards">
+      <div class="col-md-6 col-xl-3">
+        <div class="contact-card">
+          <i class="principle bi bi-geo-alt"></i>
+          <h4>Location:</h4>
+          <p>N 64 AV Oran, Mofleuri Fes</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-xl-3">
+        <div class="contact-card">
+          <i class="principle bi bi-envelope"></i>
+          <h4>Email:</h4>
+          <p><a href="mailto:achraf.zaime@gmail.com">achraf.zaime@gmail.com</a></p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-xl-3">
+        <div class="contact-card">
+          <i class="principle bi bi-share"></i>
+          <h4>Social Profiles:</h4>
+          <p>
+            <a href="https://www.linkedin.com/in/achraf-zaim-443936233/" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
+            <a href="https://github.com/ZaimAchraf" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-xl-3">
+        <div class="contact-card">
+          <i class="principle bi bi-phone"></i>
+          <h4>Call:</h4>
+          <p>+212 7-08276748</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-12">
+        {!formConfigured && (
+          <div class="alert alert-warning" role="alert">
+            Set <code>PUBLIC_FORMSPREE_ENDPOINT</code> in <code>.env</code> to activate the form service.
+          </div>
+        )}
+
+        <form action={formEndpoint} method="POST" class="php-email-form">
+          <div class="row">
+            <div class="col-md-6 form-group">
+              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required />
+            </div>
+            <div class="col-md-6 form-group mt-3 mt-md-0">
+              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required />
+            </div>
+          </div>
+          <div class="form-group mt-3">
+            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required />
+          </div>
+          <div class="form-group mt-3">
+            <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
+          </div>
+          <input type="hidden" name="_subject" value="New portfolio contact message" />
+          <div class="text-center"><button type="submit">Send Message</button></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,67 @@
+---
+import Footer from '../../components/Footer.astro';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { portfolioProjects } from '../../data/site';
+
+export function getStaticPaths() {
+  return portfolioProjects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<SiteLayout title={`${project.title} - Portfolio Details`} description={project.description}>
+  <main id="main">
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-8">
+            {
+              project.media.type === 'document' ? (
+                <iframe src={project.media.src} width="500" height="400" title={project.media.title}></iframe>
+              ) : (
+                <div class="portfolio-details-slider swiper">
+                  <div class="swiper-wrapper align-items-center">
+                    {project.media.items.map((image: string) => (
+                      <div class="swiper-slide">
+                        <img src={image} alt={project.title} />
+                      </div>
+                    ))}
+                  </div>
+                  <div class="swiper-pagination"></div>
+                </div>
+              )
+            }
+          </div>
+
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h3>Project information</h3>
+              <ul>
+                <li><strong>Category</strong>: {project.stack}</li>
+                <li><strong>Client</strong>: {project.client}</li>
+                <li><strong>Project date</strong>: {project.date}</li>
+                {
+                  project.projectUrl && (
+                    <li>
+                      <strong>Project URL</strong>:{' '}
+                      <a href={project.projectUrl} target="_blank" rel="noopener noreferrer">{project.projectUrlLabel ?? project.projectUrl}</a>
+                    </li>
+                  )
+                }
+              </ul>
+            </div>
+            <div class="portfolio-description">
+              <p>{project.description}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</SiteLayout>

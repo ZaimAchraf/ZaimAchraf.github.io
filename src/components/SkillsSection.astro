@@ -1,0 +1,35 @@
+---
+import { skillGroups } from '../data/site';
+---
+
+<section id="skills" class="skills section-bg" data-nav-target="resume">
+  <div class="container" data-aos="fade-up">
+    <div class="section-title">
+      <h2>Skills</h2>
+      <p>
+        <b>
+          My core skills are centered around fullstack web development: building solid backends, integrating clean frontends, working with databases and APIs, and delivering maintainable applications in real project environments.
+        </b>
+      </p>
+    </div>
+
+    <div class="row g-4 skills-groups">
+      {
+        skillGroups.map((group) => (
+          <div class="col-md-6 col-xl-4">
+            <article class="skill-group-card">
+              <div class="skill-group-icon">
+                <i class={group.icon}></i>
+              </div>
+              <h3>{group.title}</h3>
+              <p>{group.description}</p>
+              <div class="skill-tags">
+                {group.items.map((item) => <span class="skill-tag">{item}</span>)}
+              </div>
+            </article>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

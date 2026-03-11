@@ -1,0 +1,28 @@
+---
+import AboutSection from '../components/AboutSection.astro';
+import ArticlesSection from '../components/ArticlesSection.astro';
+import ContactSection from '../components/ContactSection.astro';
+import Footer from '../components/Footer.astro';
+import HeaderNav from '../components/HeaderNav.astro';
+import HeroSection from '../components/HeroSection.astro';
+import PortfolioSection from '../components/PortfolioSection.astro';
+import ResumeSection from '../components/ResumeSection.astro';
+import SkillsSection from '../components/SkillsSection.astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
+---
+
+<SiteLayout>
+  <HeaderNav />
+  <HeroSection />
+
+  <main id="main">
+    <AboutSection />
+    <ArticlesSection />
+    <ResumeSection />
+    <SkillsSection />
+    <PortfolioSection />
+    <ContactSection />
+  </main>
+
+  <Footer />
+</SiteLayout>

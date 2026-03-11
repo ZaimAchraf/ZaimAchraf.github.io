@@ -1,0 +1,32 @@
+---
+import { socialLinks } from '../data/site';
+---
+
+<section id="hero" class="d-flex flex-column justify-content-center">
+  <div class="container" data-aos="zoom-in" data-aos-delay="100" style="max-width: none;">
+    <div class="hero-layout">
+      <div class="hero-card">
+        <span class="hero-badge">Technical Referent • Java Fullstack Developer</span>
+        <h1>Zaim Achraf</h1>
+        <p class="hero-role">I'm <span class="typed" data-typed-items="Technical Referent, JAVA Fullstack Developer"></span></p>
+        <p class="hero-lead">
+          I design and deliver reliable web platforms with a strong focus on fullstack Java development,
+          technical leadership, and pragmatic execution.
+        </p>
+        <div class="hero-actions">
+          <a href="#portfolio" class="btn btn-primary scrollto">View Projects</a>
+          <a href="#contact" class="btn btn-outline scrollto">Contact Me</a>
+        </div>
+        <div class="social-links hero-social">
+          {
+            socialLinks.map((link) => (
+              <a href={link.href} class={link.className} target="_blank" rel="noopener noreferrer" aria-label={link.label}>
+                <i class={link.icon}></i>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

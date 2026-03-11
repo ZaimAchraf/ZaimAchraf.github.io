@@ -1,0 +1,22 @@
+---
+import { navItems } from '../data/site';
+---
+
+<i class="bi bi-list mobile-nav-toggle d-lg-none"></i>
+
+<header id="header" class="d-flex flex-column justify-content-center">
+  <nav id="navbar" class="navbar nav-menu">
+    <ul>
+      {
+        navItems.map((item, index) => (
+          <li>
+            <a href={`#${item.id}`} class:list={['nav-link', 'scrollto', index === 0 && 'active']}>
+              <i class={item.icon}></i>
+              <span>{item.label}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>

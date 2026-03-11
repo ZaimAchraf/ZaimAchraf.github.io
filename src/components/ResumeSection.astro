@@ -1,0 +1,64 @@
+---
+import { education, experience } from '../data/site';
+---
+
+<section id="resume" class="resume">
+  <div class="container" data-aos="fade-up">
+    <div class="section-title">
+      <h2>Resume</h2>
+      <p>
+        I am a Java Fullstack Developer and Technical Referent with experience across enterprise delivery,
+        freelance product development, and fullstack web applications. Since 2020, I have been working on
+        freelance projects alongside my professional career, while building enterprise experience at CGI.
+        My background combines backend engineering, frontend integration, and structured delivery practices,
+        with a focus on building reliable solutions that are maintainable over time.
+      </p>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6">
+        <h3 class="resume-title">Summary</h3>
+        <div class="resume-item pb-0">
+          <h4>Zaim Achraf</h4>
+          <p><em>Java Fullstack Developer with 5+ years of freelance project experience since 2020, combined with enterprise delivery experience at CGI in fullstack development and technical leadership.</em></p>
+          <ul>
+            <li>Fes, Morocco 30000</li>
+            <li>+212 7-08276748</li>
+            <li>achraf.zaime@gmail.com</li>
+          </ul>
+        </div>
+
+        <h3 class="resume-title">Education</h3>
+        {
+          education.map((item) => (
+            <div class="resume-item">
+              <h4>{item.title}</h4>
+              <h5>{item.period}</h5>
+              <p><em>{item.organization}</em></p>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="col-lg-6">
+        <h3 class="resume-title">Professional Experience</h3>
+        {
+          experience.map((item) => (
+            <div class="resume-item">
+              <h4>{item.title}</h4>
+              <h5>{item.period}</h5>
+              <p><em>{item.organization}</em></p>
+              {
+                item.details && (
+                  <ul>
+                    {item.details.map((detail) => <li>{detail}</li>)}
+                  </ul>
+                )
+              }
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
