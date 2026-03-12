@@ -18,8 +18,9 @@ const { title = siteMeta.title, description = siteMeta.description } = Astro.pro
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="keywords" content={siteMeta.keywords} />
-    <link rel="icon" href="/assets/img/favicon_laptop_az_large.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="/assets/img/favicon_laptop_az_large.ico" />
+    <link rel="icon" href="/assets/img/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/assets/img/apple-touch.png" />
+    <link rel="preload" as="image" href="/assets/img/new_bg.jpg" fetchpriority="high" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet" />
     <link href="/assets/vendor/aos/aos.css" rel="stylesheet" />
     <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -40,14 +41,12 @@ const { title = siteMeta.title, description = siteMeta.description } = Astro.pro
   </head>
   <body>
     <slot />
-    <script is:inline src="/assets/vendor/purecounter/purecounter_vanilla.js"></script>
     <script is:inline src="/assets/vendor/aos/aos.js"></script>
     <script is:inline src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script is:inline src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
     <script is:inline src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
     <script is:inline src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script is:inline src="/assets/vendor/typed.js/typed.min.js"></script>
-    <script is:inline src="/assets/vendor/waypoints/noframework.waypoints.js"></script>
     <script is:inline src="/assets/js/main.js"></script>
   </body>
 </html>

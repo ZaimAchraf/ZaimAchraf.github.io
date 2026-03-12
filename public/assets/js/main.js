@@ -146,7 +146,10 @@
   let preloader = select('#preloader');
   if (preloader) {
     window.addEventListener('load', () => {
-      preloader.remove()
+      preloader.classList.add('preloader-hidden')
+      window.setTimeout(() => {
+        preloader.remove()
+      }, 320)
     });
   }
 
@@ -164,23 +167,6 @@
       backSpeed: 50,
       backDelay: 2000
     });
-  }
-
-  /**
-   * Skills animation
-   */
-  let skilsContent = select('.skills-content');
-  if (skilsContent) {
-    new Waypoint({
-      element: skilsContent,
-      offset: '80%',
-      handler: function(direction) {
-        let progress = select('.progress .progress-bar', true);
-        progress.forEach((el) => {
-          el.style.width = el.getAttribute('aria-valuenow') + '%'
-        });
-      }
-    })
   }
 
   /**
@@ -211,13 +197,6 @@
       }, true);
     }
 
-  });
-
-  /**
-   * Initiate portfolio lightbox 
-   */
-  const portfolioLightbox = GLightbox({
-    selector: '.portfolio-lightbox'
   });
 
   /**
@@ -275,10 +254,5 @@
       mirror: false
     })
   });
-
-  /**
-   * Initiate Pure Counter 
-   */
-  new PureCounter();
 
 })()

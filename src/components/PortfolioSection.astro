@@ -30,7 +30,7 @@ const categoryClassMap = {
         portfolioProjects.map((project) => (
           <div class:list={['col-lg-4', 'col-md-6', 'portfolio-item', categoryClassMap[project.category]]}>
             <div class="portfolio-wrap">
-              <img src={project.cardImage} class="img-fluid" alt={project.title} />
+              <img src={project.cardImage} class="img-fluid" alt={project.title} loading="lazy" decoding="async" />
               <div class="portfolio-info">
                 <h4>{project.cardTitle}</h4>
                 <p>{project.summary}</p>

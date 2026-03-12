@@ -27,7 +27,7 @@ const { project } = Astro.props;
                   <div class="swiper-wrapper align-items-center">
                     {project.media.items.map((image: string) => (
                       <div class="swiper-slide">
-                        <img src={image} alt={project.title} />
+                        <img src={image} alt={project.title} loading="lazy" decoding="async" />
                       </div>
                     ))}
                   </div>
