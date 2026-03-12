@@ -2,7 +2,8 @@
 import { portfolioFilters, portfolioProjects } from '../data/site';
 
 const categoryClassMap = {
-  platform: 'filter-platform',
+  client: 'filter-client',
+  showcase: 'filter-showcase',
   starter: 'filter-starter',
 } as const;
 ---
@@ -11,6 +12,13 @@ const categoryClassMap = {
   <div class="container" data-aos="fade-up">
     <div class="section-title">
       <h2>Portfolio</h2>
+      <p>
+        These projects are selected examples of my work, not the full list. Most of them are real client
+        applications, while others are engineering starters or a technical showcase project built to demonstrate
+        architecture, backend, and fullstack development skills. When available, you will find either a live
+        application link or a GitHub repository. For confidential internal systems, only selected visuals and project
+        summaries can be shared.
+      </p>
     </div>
 
     <div class="row">

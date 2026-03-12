@@ -48,7 +48,7 @@ export type PortfolioProject = {
   title: string;
   cardTitle: string;
   summary: string;
-  category: 'platform' | 'starter';
+  category: 'client' | 'starter' | 'showcase';
   stack: string;
   client: string;
   date: string;
@@ -199,7 +199,6 @@ export const experience: ResumeEntry[] = [
     organization: 'CGI Solutions And Technologies',
     details: [
       'Developed and maintained backend features for CardPro using Java, Spring, Struts, and Oracle.',
-      'Improved a monitoring tool used across the TotalEnergies network for real-time alerts and operational reporting.',
     ],
   },
   {
@@ -214,17 +213,63 @@ export const experience: ResumeEntry[] = [
 
 export const portfolioFilters = [
   { label: 'All', value: '*' },
-  { label: 'Products & Platforms', value: '.filter-platform' },
+  { label: 'Client Applications', value: '.filter-client' },
+  { label: 'Technical Showcase', value: '.filter-showcase' },
   { label: 'Engineering Starters', value: '.filter-starter' },
 ] as const;
 
 export const portfolioProjects: PortfolioProject[] = [
   {
+    slug: 'mobdie-kids',
+    title: 'Mobdie Kids',
+    cardTitle: 'Mobdie Kids',
+    summary: 'Educational boxes, subscriptions, and e-learning platform',
+    category: 'client',
+    stack: 'Web Application',
+    client: 'Mobdie Kids',
+    date: 'June 20, 2023',
+    cardImage: '/assets/img/portfolio/mobdie_1.png',
+    description:
+      'A multi-role web platform designed for an educational box business, combining product catalog management, subscriptions, parent and child spaces, e-learning content, gamification, partner workflows, and a configurable admin backoffice.',
+    projectUrl: 'https://mobdie.ma',
+    projectUrlLabel: 'Live Demo',
+    media: {
+      type: 'images',
+      items: [
+        '/assets/img/portfolio/mobdie_1.png',
+        '/assets/img/portfolio/mobdie_2.png',
+        '/assets/img/portfolio/mobdie_3.png',
+      ],
+    },
+  },
+  {
+    slug: 'ecosystem-monitoring-platform',
+    title: 'Ecosystem Monitoring Platform',
+    cardTitle: 'Monitoring Platform',
+    summary: 'Internal supervision, reporting, and alerting platform',
+    category: 'client',
+    stack:
+      'Java 21, Spring Boot, Oracle DB, Redis, Angular, Docker, Spring Security, Quartz',
+    client: 'Confidential enterprise client',
+    date: 'Professional internal platform',
+      cardImage: '/assets/img/portfolio/Monitoring_1.png',
+      description:
+        'An internal platform built to supervise a client ecosystem by collecting data from multiple components through scheduled feeds, direct database access, SFTP file retrieval, and APIs. The platform turns that data into configurable dashboards, reports, and automated alerts, with pages, sections, widgets, tables, graphs, and alert rules all driven by database configuration. I also contribute to its maintenance, production support, and ongoing evolution.',
+      media: {
+      type: 'images',
+      items: [
+        '/assets/img/portfolio/Monitoring_1.png',
+        '/assets/img/portfolio/Monitoring_2.png',
+        '/assets/img/portfolio/Monitoring_3.png',
+      ],
+    },
+  },
+  {
     slug: 'binwatcher',
     title: 'BinWatcher',
     cardTitle: 'BinWatcher',
     summary: 'Smart waste management platform',
-    category: 'platform',
+    category: 'showcase',
     stack: 'Spring Boot, Spring Cloud, Kafka, MongoDB, Docker, ELK',
     client: 'Architecture and product case study',
     date: '2025',
@@ -277,34 +322,11 @@ export const portfolioProjects: PortfolioProject[] = [
     },
   },
   {
-    slug: 'mobdie-kids',
-    title: 'Mobdie Kids',
-    cardTitle: 'Mobdie Kids',
-    summary: 'Educational boxes, subscriptions, and e-learning platform',
-    category: 'platform',
-    stack: 'Laravel Web Application',
-    client: 'Mobdie Kids',
-    date: 'June 20, 2023',
-    cardImage: '/assets/img/portfolio/mobdie_1.png',
-    description:
-      'A multi-role web platform designed for an educational box business, combining product catalog management, subscriptions, parent and child spaces, e-learning content, gamification, partner workflows, and a configurable admin backoffice.',
-    projectUrl: 'https://mobdie.ma',
-    projectUrlLabel: 'Live Demo',
-    media: {
-      type: 'images',
-      items: [
-        '/assets/img/portfolio/mobdie_1.png',
-        '/assets/img/portfolio/mobdie_2.png',
-        '/assets/img/portfolio/mobdie_3.png',
-      ],
-    },
-  },
-  {
     slug: 'autobody-repair',
     title: 'AutoBody',
     cardTitle: 'AutoBody',
     summary: 'Repair business management platform',
-    category: 'platform',
+    category: 'client',
     stack: 'Spring Boot & Angular',
     client: 'AutoBody & Repair',
     date: 'July 2023',
@@ -321,14 +343,14 @@ export const portfolioProjects: PortfolioProject[] = [
     slug: 'Syndicat',
     title: 'Syndicat Platform',
     cardTitle: 'Syndicat Platform',
-    summary: 'Condominium communication and account management',
-    category: 'platform',
-    stack: 'Laravel API & React',
-    client: 'Condominium association',
+    summary: 'Condominium management, billing, and resident communication',
+    category: 'client',
+    stack: 'Laravel API, React, MySQL',
+    client: 'Condominium management client',
     date: 'July 2023',
     cardImage: '/assets/img/portfolio/syndicat_1.png',
     description:
-      'A web platform built to improve communication between co-owners and trustees while simplifying account and condominium management workflows.',
+      'A multi-role web platform designed for condominium management, with dedicated spaces for administrators, syndic managers, and co-owners. It centralizes user and property management, monthly invoice generation and payment tracking, condominium documents and rules, internal messaging, complaints and work requests, and shared calendar events with notifications.',
     media: {
       type: 'document',
       src: '/assets/Documents/Syndicat.pdf',
